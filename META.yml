@@ -1,0 +1,15 @@
+--- #YAML:1.0
+name: Acme-Lingua-Pirate-Perl
+version: 0.1
+license: perl
+distribution_type: module
+requires:
+  Filter::Simple: 0.3
+recommends: {}
+build_requires: {}
+conflicts: {}
+provides:
+  Acme::Lingua::Pirate::Perl:
+    file: lib/Acme/Lingua/Pirate/Perl.pm
+    version: 0.1
+generated_by: Module::Build version 0.18

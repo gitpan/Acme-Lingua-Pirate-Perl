@@ -1,0 +1,24 @@
+INSTALL:
+
+This module be requirin' Module::Build to install, not that scurvy
+ExtUtils::MakeMaker!
+
+% perl Build.PL
+% ./Build
+% ./Build test verbose=1
+% ./Build install
+
+I recommend you do the test step verbosely. Really, please do.
+
+ABOUT:
+A daft module to let you write Perl as a pirate might. Arrr!
+
+AUTHOR:
+Earle Martin <emartin@cpan.org>, but this module is basically
+an adaptation of Acme::Lingua::Strine::Perl by Simon Wistow 
+<simon@twoshortplanks.com>.
+
+Hell, it took me longer to write the tests than the module....
+
+COPYING:
+This module is distributed under the same terms as Perl itself.

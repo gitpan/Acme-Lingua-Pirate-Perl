@@ -1,0 +1,8 @@
+Build.PL
+Changes
+MANIFEST
+META.yml
+README
+example.pl
+lib/Acme/Lingua/Pirate/Perl.pm
+t/pirate.t
