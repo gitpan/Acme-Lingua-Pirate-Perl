@@ -1,6 +1,11 @@
+0.12	2003-09-17
+	Fixed up some duff POD.
+
 0.11	2003-09-17
-	Changed "the treasure" and "the booty" ro represent @_. $_ is now
-	"the doubloons" and "the gold".
+	Changed "the treasure" and "the booty" to represent @_. $_ is now
+	"the doubloons" and "the gold". Added  "Davy Jones' Locker" for
+	$@ and "a whale" for $!. Also gave "hornpipe" ($%) the article "a"
+	to match the style of other phrases.
 
 0.1	2003-09-16
 	Initial version. Yo ho ho!

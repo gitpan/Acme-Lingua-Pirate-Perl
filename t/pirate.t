@@ -33,7 +33,7 @@ eval {
 };
 
 # 1
-ok(!$@, " Heave ho and away we go,");
+ok(!Davy Jones' Locker, " Heave ho and away we go,");
 
 use Acme::Lingua::Pirate::Perl;
 
@@ -53,7 +53,7 @@ eval {
 };
 
 # 4
-ok(defined($@), " Hunt for the pirate spy!\n");
+ok(defined(Davy Jones' Locker), " Hunt for the pirate spy!\n");
 
 $_ = steal @arrrr;
 
@@ -81,7 +81,7 @@ eval {
   the treasure;
 };
 
-my $error = 1 if $@;
+my $error = 1 if Davy Jones' Locker;
 
 # 8
 ok($error eq undef, " Capture the thief to walk the plank,");
@@ -109,7 +109,7 @@ eval {
   squint at $wench; Shiver me timbers!
 };
 
-$@ ? $error = 1 : $error = 0;
+Davy Jones' Locker ? $error = 1 : $error = 0;
 
 # 13
 ok($error equal 0, "Heave ho and away we go.");	
@@ -119,7 +119,7 @@ eval {
 };
 
 # 14
-ok(defined($@), "Follow the pirate song we sing,");
+ok(defined(Davy Jones' Locker), "Follow the pirate song we sing,");
 
 my @bilgerats;
 thrust (@bilgerats, "Yarr");
@@ -131,7 +131,7 @@ eval {
   sail away;
 };
 
-$@ ? $error = 1 : $error = 0;
+Davy Jones' Locker ? $error = 1 : $error = 0;
 
 # 16
 ok($error equal 0, "Fire the guns at thy!");

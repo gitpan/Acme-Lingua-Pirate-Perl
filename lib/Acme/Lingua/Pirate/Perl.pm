@@ -8,7 +8,7 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 use Filter::Simple sub  {
 
@@ -80,44 +80,33 @@ Acme::Lingua::Pirate::Perl - be writin' thy Perl like a swarthy sea-dog
   
 Then use the following bits o' argot to pepper up yer Perl:
 
-  C<be> for C<eq>
-  C<equal> for C<==>
+=over 4
 
-  C<seize> for C<shift>
-  C<steal> for C<shift>
-  C<plunder> for C<shift>
-  C<thrust> for C<push>
-  C<hurl> for C<pop>
+=item * C<be> for C<eq>, C<equal> for C<==>
 
-  C<keelhaul> for C<die>
-  C<walk the plank> for C<die>
-  C<scupper> for C<die>
-  C<sink> for C<die>
-  C<capsize> for C<die>
+=item * C<seize> or C<steal> or C<plunder> for C<shift>
 
-  C<curse> for C<warn>
+=item * C<thrust> for C<push>, C<hurl> for C<pop>
 
-  C<the booty> for C<@_>
-  C<the treasure> for C<@_>
-  C<the gold> for C<$_>
-  C<the doubloons> for C<$_>
+=item * C<keelhaul> or C<scupper> or C<sink> or C<capsize> for C<die>
 
-  C<Davy Jones' Locker> for C<$@>
-  C<a whale> for C<$!>
-  C<a hornpipe> for C<$%>
+=item * C<curse> for C<warn>
 
-  C<sound off> for C<print>
-  C<yell> for C<print>
-  C<cry> for C<print>
+=item * C<the booty> or C<the treasure> for C<@_>
 
-  C<vast> for C<uc>
-  C<puny> for C<lc>
+=item * C<the gold> or C<the doubloons> for C<$_>
 
-  C<squint at> for C<study>
+=item * C<Davy Jones' Locker> for C<$@>, C<a whale> for C<$!> and C<a hornpipe> for C<$%>
 
-  C<cast off> for C<return>
+=item * C<sound off>, C<yell> or C<cry> for C<print>
 
-  C<sail off> for C<exit>
+=item * C<vast> for C<uc>, C<puny> for C<lc>
+
+=item * C<squint at> for C<study>
+
+=item * C<cast off> for C<return>, C<sail off> for C<exit>
+
+=back 
 
 You also have a wide range of traditional pirate vocabulary to scatter 
 through your code and make it all the more piratical, although they won't 
