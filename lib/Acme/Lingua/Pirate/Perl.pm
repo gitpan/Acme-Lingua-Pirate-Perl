@@ -8,7 +8,7 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-our $VERSION = '0.1';
+our $VERSION = '0.11';
 
 use Filter::Simple sub  {
 
@@ -28,10 +28,14 @@ use Filter::Simple sub  {
 
   s/(\W)curse/$1warn/g;
 
-  s/(\W)the booty/$1\$_/g;
-  s/(\W)the treasure/$1\$_/g;
+  s/(\W)the booty/$1\@_/g;
+  s/(\W)the treasure/$1\@_/g;
+  s/(\W)the gold/$1\$_/g;
+  s/(\W)the doubloons/$1\$_/g;
 
-  s/(\W)hornpipe/$1\$%/g;
+  s/(\W)Davy Jones' Locker/$1\$\@/g;
+  s/(\W)a whale/$1\$!/g;
+  s/(\W)a hornpipe/$1\$%/g;
 
   s/(\W)sound off/$1print/g;
   s/(\W)yell/$1print/g;
@@ -52,6 +56,7 @@ use Filter::Simple sub  {
   s/(\W)Yar!/$1/g;
   s/(\W)Yarr!/$1/g;
   s/(\W)Yarrr!/$1/g;
+  s/(\W)Rarr!/$1/g; # Cap'n Gellyfish of the good ship Fabulous
   s/(\W)Avast!/$1/g;
   s/(\W)Shiver me timbers!/$1/g;
   s/(\W)Splice the mainbrace!/$1/g;
@@ -73,64 +78,82 @@ Acme::Lingua::Pirate::Perl - be writin' thy Perl like a swarthy sea-dog
 
   use Acme::Lingua::Pirate::Perl;
   
-Then use the following bits of argot to pepper up yer Perl:
+Then use the following bits o' argot to pepper up yer Perl:
 
-  "be" for "eq"
-  "equal" for "=="
+  C<be> for C<eq>
+  C<equal> for C<==>
 
-  "seize" for "shift"
-  "steal" for "shift"
-  "plunder" for "shift"
-  "thrust" for "push"
-  "hurl" for "pop"
+  C<seize> for C<shift>
+  C<steal> for C<shift>
+  C<plunder> for C<shift>
+  C<thrust> for C<push>
+  C<hurl> for C<pop>
 
-  "keelhaul" for "die"
-  "walk the plank" for "die"
-  "scupper" for "die"
-  "sink" for "die"
-  "capsize" for "die"
+  C<keelhaul> for C<die>
+  C<walk the plank> for C<die>
+  C<scupper> for C<die>
+  C<sink> for C<die>
+  C<capsize> for C<die>
 
-  "curse" for "warn"
+  C<curse> for C<warn>
 
-  "the booty" for "$_"
-  "the treasure" for "$_"
+  C<the booty> for C<@_>
+  C<the treasure> for C<@_>
+  C<the gold> for C<$_>
+  C<the doubloons> for C<$_>
 
-  "hornpipe" for "$%"
+  C<Davy Jones' Locker> for C<$@>
+  C<a whale> for C<$!>
+  C<a hornpipe> for C<$%>
 
-  "sound off" for "print"
-  "yell" for "print"
-  "cry" for "print"
+  C<sound off> for C<print>
+  C<yell> for C<print>
+  C<cry> for C<print>
 
-  "vast" for "uc"
-  "puny" for "lc"
+  C<vast> for C<uc>
+  C<puny> for C<lc>
 
-  "squint at" for "study"
+  C<squint at> for C<study>
 
-  "cast off" for "return"
+  C<cast off> for C<return>
 
-  "sail off" for "exit"
+  C<sail off> for C<exit>
 
 You also have a wide range of traditional pirate vocabulary to scatter 
 through your code and make it all the more piratical, although they won't 
-cause anything to actually happen....
+cause anything to actually happen, except perhaps terrifying any landlubbers
+who happen to read your code.
 
-  "Arr!" 
-  "Arrr!"
-  "Arrrr!"
-  "Yar!"
-  "Yarr!"
-  "Yarrr!"
-  "Avast!"
-  "Shiver me timbers!"
-  "Splice the mainbrace!"
-  "Yo ho!"
-  "Yo ho ho!"
+=over 4
 
+=item * Arr!
+
+=item * Arrr!
+
+=item * Arrrr!
+
+=item * Yar!
+
+=item * Yarr!
+
+=item * Yarrr! (note the varying levels of emphasis to match your mood...)
+
+=item * Avast!
+
+=item * Shiver me timbers!
+
+=item * Splice the mainbrace!
+
+=item * Yo ho!
+
+=item * Yo ho ho!
+
+=back 
 
 =head1 DESCRIPTION
 
 Avast, ye scurvy dogs! September 19th be B<International Talk Like A Pirate Day>! An' if 
-thy code ain't shipshape, ye'll be walkin' that thar plank!
+thy code ain't shipshape, ye'll be walkin' the plank!
 
 L<http://www.yarr.org.uk/>
 
@@ -142,6 +165,10 @@ because this is a straight rip of his L<Acme::Lingua::Strine::Perl>!
 =head1 BLAME
 
 It's all london.pm's fault, of course.
+
+=head1 DEDICATION
+
+This module is dedicated to Captain Jack Sparrow, the best pirate I have ever seen.
 
 =head1 SEE ALSO
 

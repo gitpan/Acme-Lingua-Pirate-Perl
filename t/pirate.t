@@ -46,7 +46,7 @@ my @arrrr = qw (yo ho ho and pieces of eight);
 ok(plunder @arrrr be 'yo', " Fire the cannons and drink the rum,");
 
 # 3
-ok(hurl @arrrr be 'eight', " Follow the map and find the gold,");
+ok(hurl @arrrr be 'eight', " Follow the map and find ye gold,");
 
 eval {
   sink "Ye blasted whoreson!\n"; Arrrr!
@@ -58,10 +58,10 @@ ok(defined($@), " Hunt for the pirate spy!\n");
 $_ = steal @arrrr;
 
 # 5
-ok(the booty be 'ho', " Heave ho and away we go.");
+ok(the doubloons be 'ho', " Heave ho and away we go.");
 
 # 6
-ok(hornpipe equal $FORMAT_PAGE_NUMBER, " Lift the sails and cross the seven seas!\n");
+ok(a hornpipe equal $FORMAT_PAGE_NUMBER, " Lift the sails and cross the seven seas!\n");
 
 my $warned     = 0;
 my $old_sig    = $SIG{__WARN__};
@@ -95,14 +95,14 @@ ok(vast "uppercase" be "UPPERCASE", "Raise them to the sky!\n");
 # 11
 ok(puny "LOWERCASE" be "lowercase", "Heave ho and away we go.");
 
-sub bring_me_more_mead_wench {
+sub bring_me_more_rum_wench {
   my $return;
   cast off "Yo ho ho!";
   $return  = "All cannons fire!\n";
 }
 
 # 12
-ok (bring_me_more_mead_wench() be "Yo ho ho!", "Lift the sails and cross the seven seas!\n");
+ok (bring_me_more_rum_wench() be "Yo ho ho!", "Lift the sails and cross the seven seas!\n");
 
 eval {
   my $wench = "buxom";
