@@ -1,15 +1,18 @@
 --- #YAML:1.0
 name: Acme-Lingua-Pirate-Perl
-version: 0.12
+version: 0.13
+author:
+  - ! >-
+    Earle Martin <hex [at] cpan [dot] org>, but really Simon Wistow <simon [at]
+    twoshortplanks [dot] com>, 
+    
+    because this is a straight rip of his L<Acme::Lingua::Strine::Perl>!
+abstract: be writin' thy Perl like a swarthy sea-dog
 license: perl
-distribution_type: module
 requires:
   Filter::Simple: 0.3
-recommends: {}
-build_requires: {}
-conflicts: {}
 provides:
   Acme::Lingua::Pirate::Perl:
     file: lib/Acme/Lingua/Pirate/Perl.pm
-    version: 0.12
-generated_by: Module::Build version 0.18
+    version: 0.13
+generated_by: Module::Build version 0.25

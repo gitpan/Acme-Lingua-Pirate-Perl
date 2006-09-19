@@ -1,12 +1,18 @@
-0.12	2003-09-17
-	Fixed up some duff POD.
+0.13    2006-09-19
+        Even more piratey goodness! Flexible pluralization and articles,
+          "the rope's end" for $/, "bilge: " for __DATA__, "poop deck: " 
+          for __END__, and more random interjections - which are now
+          case-insensitive and can be mixed and matched.
 
-0.11	2003-09-17
-	Changed "the treasure" and "the booty" to represent @_. $_ is now
-	"the doubloons" and "the gold". Added  "Davy Jones' Locker" for
-	$@ and "a whale" for $!. Also gave "hornpipe" ($%) the article "a"
-	to match the style of other phrases.
+0.12    2003-09-17
+        Fixed up some duff POD.
 
-0.1	2003-09-16
-	Initial version. Yo ho ho!
+0.11    2003-09-17
+        Changed "the treasure" and "the booty" to represent @_. $_ is now
+          "the doubloons" and "the gold". Added  "Davy Jones' Locker" for
+          $@ and "a whale" for $!. Also gave "hornpipe" ($%) the article "a"
+          to match the style of other phrases.
+
+0.1     2003-09-16
+        Initial version. Yo ho ho!
 

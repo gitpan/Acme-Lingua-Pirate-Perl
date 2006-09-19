@@ -8,61 +8,76 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 use Filter::Simple sub  {
 
-  s/(\W)be/$1eq/g;
-  s/(\W)equal/$1==/g;
+  s{(\W)be}{$1eq}g;
+  s{(\W)equal}{$1==}g;
 
-  s/(\W)seize/$1shift/g;
-  s/(\W)steal/$1shift/g;
-  s/(\W)plunder/$1shift/g;
-  s/(\W)thrust/$1push/g;
-  s/(\W)hurl/$1pop/g;
+  s{(\W)seize}{$1shift}g;
+  s{(\W)steal}{$1shift}g;
+  s{(\W)plunder}{$1shift}g;
+  s{(\W)thrust}{$1push}g;
+  s{(\W)hurl}{$1pop}g;
 
-  s/(\W)keelhaul/$1die/g;
-  s/(\W)scupper/$1die/g;
-  s/(\W)sink/$1die/g;
-  s/(\W)capsize/$1die/g;
+  s{(\W)moor}{$1wait}g;
+  
+  s{(\W)keelhaul(?: her)?}{$1die}g;
+  s{(\W)scuttle(?: her)?}{$1die}g;
+  s{(\W)sink(?: her)?}{$1die}g;
+  s{(\W)capsize(?: her)?}{$1die}g;
 
-  s/(\W)curse/$1warn/g;
+  s{(\W)curse}{$1warn}g;
 
-  s/(\W)the booty/$1\@_/g;
-  s/(\W)the treasure/$1\@_/g;
-  s/(\W)the gold/$1\$_/g;
-  s/(\W)the doubloons/$1\$_/g;
+  s{(\W)the booty}{$1\@_}g;
+  s{(\W)(?:a|the) treasure}{$1\@_}g;
+  s{(\W)the gold}{$1\$_}g;
+  s{(\W)the doubloons}{$1\$_}g;
 
-  s/(\W)Davy Jones' Locker/$1\$\@/g;
-  s/(\W)a whale/$1\$!/g;
-  s/(\W)a hornpipe/$1\$%/g;
+  s{(\W)the rope's end}{$1\$/}g;
+  s{(\W)Davy Jones' Locker}{$1\$\@}g;
+  s{(\W)(?:a|the) whale}{$1\$!}g;
+  s{(\W)(?:a|the) hornpipe}{$1\$%}g;
 
-  s/(\W)sound off/$1print/g;
-  s/(\W)yell/$1print/g;
-  s/(\W)cry/$1print/g;
+  s{(\W)sound off}{$1print}g;
+  s{(\W)yell}{$1print}g;
+  s{(\W)cry}{$1print}g;
 
-  s/(\W)vast/$1uc/g;
-  s/(\W)puny/$1lc/g;
+  s{(\W)vast}{$1uc}g;
+  s{(\W)puny}{$1lc}g;
 
-  s/(\W)squint at/$1study/g;
+  s{(\W)squint at}{$1study}g;
 
-  s/(\W)cast off/$1return/g;
+  s{(\W)cast off}{$1return}g;
 
-  s/(\W)sail off/$1exit/g;
+  s{(\W)sail off}{$1exit}g;
+  s{(\W)weigh anchor}{$1exit}g;
 
-  s/(\W)Arr!/$1/g;
-  s/(\W)Arrr!/$1/g;
-  s/(\W)Arrrr!/$1/g;
-  s/(\W)Yar!/$1/g;
-  s/(\W)Yarr!/$1/g;
-  s/(\W)Yarrr!/$1/g;
-  s/(\W)Rarr!/$1/g; # Cap'n Gellyfish of the good ship Fabulous
-  s/(\W)Avast!/$1/g;
-  s/(\W)Shiver me timbers!/$1/g;
-  s/(\W)Splice the mainbrace!/$1/g;
-  s/(\W)Yo ho!/$1/g;
-  s/(\W)Yo ho ho!/$1/g;
-	
+  s{(\W)bilge:}{$1__DATA__g};
+  s{(\W)poop deck:}{$1__END__}g;
+  
+  # random interjections are case-insensitive...
+  
+  s{(\W)ar[r]+(?:\W)}{$1}gi;
+  s{(\W)ya[r]+(?:\W)}{$1}gi;
+  s{(\W)rar[r]*(?:\W)}{$1}gi; # Cap'n Gellyfish of the good ship Fabulous
+
+  s{(\W)avast(?:\W)}{$1}gi;
+  s{(\W)bucko(?:\W)}{$1}gi;
+  s{(\W)curse ye(?:\W)}{$1}gi;
+  s{(\W)curse thy deadlights(?:\W)}{$1}gi;
+  s{(\W)gangway(?:\W)}{$1}gi;
+  s{(\W)matey(?:\W)}{$1}gi;
+  s{(\W)me hearties(?:\W)}{$1}gi;
+  s{(\W)scallywag[s]?(?:\W)}{$1}gi;
+  s{(\W)shiver me timbers(?:\W)}{$1}gi;
+  s{(\W)splice the mainbrace(?:\W)}{$1}gi;
+  s{(\W)sprog[s]?(?:\W)}{$1}gi;
+  s{(\W)swab[s]?(?:\W)}{$1}gi;
+  s{(\W)ye scurvy dog[s]?(?:\W)}{$1}gi;
+  s{(\W)yo[\s-]ho(?:[\s-]ho)?(?:\W)}{$1}gi;
+  
 };
 
 
@@ -88,15 +103,17 @@ Then use the following bits o' argot to pepper up yer Perl:
 
 =item * C<thrust> for C<push>, C<hurl> for C<pop>
 
-=item * C<keelhaul> or C<scupper> or C<sink> or C<capsize> for C<die>
+=item * C<keelhaul> or C<scuttle> or C<sink> or C<capsize> for C<die> - add " her" if you like
 
 =item * C<curse> for C<warn>
 
-=item * C<the booty> or C<the treasure> for C<@_>
+=item * C<the booty> or C<the treasure> (or C<a treasure>) for C<@_>
 
 =item * C<the gold> or C<the doubloons> for C<$_>
 
-=item * C<Davy Jones' Locker> for C<$@>, C<a whale> for C<$!> and C<a hornpipe> for C<$%>
+=item * C<Davy Jones' Locker> for C<$@>, C<a whale> (or C<the whale>) for C<$!> and C<a hornpipe> or (C<the hornpipe>) for C<$%>
+
+=item * C<the rope's end> for C<$/>
 
 =item * C<sound off>, C<yell> or C<cry> for C<print>
 
@@ -104,7 +121,9 @@ Then use the following bits o' argot to pepper up yer Perl:
 
 =item * C<squint at> for C<study>
 
-=item * C<cast off> for C<return>, C<sail off> for C<exit>
+=item * C<cast off> for C<return>, C<sail off> or C<weigh anchor> for C<exit>
+
+=item * C<bilge:> for C<__DATA__> and C<poop deck:> for C<__END__>
 
 =back 
 
@@ -115,40 +134,57 @@ who happen to read your code.
 
 =over 4
 
-=item * Arr!
+=item * arr (or arrr, arrrr...)
 
-=item * Arrr!
+=item * yar (or yarr, yarrr...)
 
-=item * Arrrr!
+=item * avast
 
-=item * Yar!
+=item * curse ye
 
-=item * Yarr!
+=item * curse thy deadlights
 
-=item * Yarrr! (note the varying levels of emphasis to match your mood...)
+=item * matey
 
-=item * Avast!
+=item * scallywag(s)
 
-=item * Shiver me timbers!
+=item * shiver me timbers
 
-=item * Splice the mainbrace!
+=item * splice the mainbrace
 
-=item * Yo ho!
+=item * sprog(s)
 
-=item * Yo ho ho!
+=item * swab(s)
+
+=item * ye scurvy dog(s)
+
+=item * yo ho (ho) (optionally hyphenated)
 
 =back 
 
-=head1 DESCRIPTION
+These are case-insensitive and can be followed by a non-word character (i.e., space or punctuation), 
+allowing you to mix and match at will. Examples:
 
-Avast, ye scurvy dogs! September 19th be B<International Talk Like A Pirate Day>! An' if 
+    AVAST! YE SCURVY DOG!
+    
+    Arrrrrr. Shiver me timbers matey.
+    
+    Yar! Curse thy deadlights, sprog!
+    
+    yo-ho-ho, scallywags
+
+More handy piratical vocab can be found at: L<http://www.puzzlepirates.com/Vocabulary.xhtml>
+    
+=head1 WHY?
+
+Take heed! September 19th be B<International Talk Like A Pirate Day>! An' if 
 thy code ain't shipshape, ye'll be walkin' the plank!
 
 L<http://www.yarr.org.uk/>
 
 =head1 AUTHOR
 
-Earle Martin <emartin@cpan.org>, but really Simon Wistow <simon@twoshortplanks.com>, 
+Earle Martin <hex [at] cpan [dot] org>, but really Simon Wistow <simon [at] twoshortplanks [dot] com>, 
 because this is a straight rip of his L<Acme::Lingua::Strine::Perl>!
 
 =head1 BLAME

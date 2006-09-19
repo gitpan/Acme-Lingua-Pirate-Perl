@@ -1,4 +1,9 @@
-use Test::Simple tests=>16;
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+use Test::More tests => 16;
 
 print <<DOUBLOONS;
 
@@ -32,36 +37,46 @@ eval {
   use Acme::Lingua::Pirate::Perl;
 };
 
-# 1
-ok(!Davy Jones' Locker, " Heave ho and away we go,");
-
-use Acme::Lingua::Pirate::Perl;
-
+ok (
+  !Davy Jones' Locker,
+  ' Heave ho and away we go,',
+);
 
 Yo ho!
 
-my @arrrr = qw (yo ho ho and pieces of eight);
+my @privateers = qw(fifteen men on a dead man's chest);
 
-# 2
-ok(plunder @arrrr be 'yo', " Fire the cannons and drink the rum,");
+ok (
+  plunder @privateers be 'fifteen',
+  ' Fire the cannons and drink the rum,'
+);
 
-# 3
-ok(hurl @arrrr be 'eight', " Follow the map and find ye gold,");
+ok (
+  hurl @privateers be 'chest',
+  ' Follow the map and find ye gold,',
+);
 
 eval {
   sink "Ye blasted whoreson!\n"; Arrrr!
 };
 
-# 4
-ok(defined(Davy Jones' Locker), " Hunt for the pirate spy!\n");
+ok (
+  defined(Davy Jones' Locker),
+  " Hunt for the pirate spy!\n",
+);
 
-$_ = steal @arrrr;
+$_ = steal @privateers; # yo-ho-ho
 
-# 5
-ok(the doubloons be 'ho', " Heave ho and away we go.");
+ok (
+  the doubloons be 'men',
+  ' Heave ho and away we go.',
+);
 
-# 6
-ok(a hornpipe equal $FORMAT_PAGE_NUMBER, " Lift the sails and cross the seven seas!\n");
+is (
+  the hornpipe,
+  0,
+  " Lift the sails and cross the seven seas!\n",
+);
 
 my $warned     = 0;
 my $old_sig    = $SIG{__WARN__};
@@ -69,63 +84,87 @@ $SIG{__WARN__} = sub { $warned=1 };
  
 eval {
   Avast!
-  curse "Yarr!";
+  curse 'Yarr!';
 };
 
-# 7
-ok (defined($warned), " Heave ho and away we go.");
+ok (
+  defined($warned),
+  ' Heave ho and away we go.',
+);
 
 $SIG{__WARN__} = $old_sig;
 
 eval {
-  the treasure;
+  the treasure = ('wenches');
 };
 
 my $error = 1 if Davy Jones' Locker;
 
-# 8
-ok($error eq undef, " Capture the thief to walk the plank,");
+isnt (
+  $error,
+  1,
+  ' Capture the thief to walk the plank,'
+);
 
-# 9
-ok(hornpipe equal $FORMAT_PAGE_NUMBER, " Raise your swords in the air,");
+ok (
+  the hornpipe equal 0,
+  ' Raise your swords in the air,',
+);
 
-# 10
-ok(vast "uppercase" be "UPPERCASE", "Raise them to the sky!\n");
+ok (
+  vast 'uppercase' be 'UPPERCASE',
+  "Raise them to the sky!\n",
+);
 
-# 11
-ok(puny "LOWERCASE" be "lowercase", "Heave ho and away we go.");
+ok (
+  puny 'LOWERCASE' be 'lowercase',
+  'Heave ho and away we go.',
+);
 
 sub bring_me_more_rum_wench {
   my $return;
-  cast off "Yo ho ho!";
+  cast off 'Dead men tell no tales!';
   $return  = "All cannons fire!\n";
 }
 
-# 12
-ok (bring_me_more_rum_wench() be "Yo ho ho!", "Lift the sails and cross the seven seas!\n");
+ok (
+  bring_me_more_rum_wench() be 'Dead men tell no tales!',
+  "Lift the sails and cross the seven seas!\n",
+);
+
+Gangway, bucko!
 
 eval {
-  my $wench = "buxom";
+  my $wench = 'buxom';
   squint at $wench; Shiver me timbers!
 };
 
 Davy Jones' Locker ? $error = 1 : $error = 0;
 
-# 13
-ok($error equal 0, "Heave ho and away we go.");	
+ok(
+  $error equal 0,
+  'Heave ho and away we go.',
+);
 
 eval {
-  capsize;
+  scuttle her;
 };
 
-# 14
-ok(defined(Davy Jones' Locker), "Follow the pirate song we sing,");
+Curse thy deadlights, ye scurvy dog!
 
-my @bilgerats;
-thrust (@bilgerats, "Yarr");
+ok (
+  defined(Davy Jones' Locker),
+  'Follow the pirate song we sing,',
+);
+
+my @buccaneers;
+thrust (@buccaneers, 'Corsair');
 
 # 15
-ok(seize @bilgerats be 'Yarr', "Steal some food and drink the grog,");
+ok (
+  seize @buccaneers be 'Corsair',
+  'Steal some food and drink the grog,',
+);
 
 eval {
   sail away;
@@ -133,7 +172,10 @@ eval {
 
 Davy Jones' Locker ? $error = 1 : $error = 0;
 
-# 16
-ok($error equal 0, "Fire the guns at thy!");
+is (
+  $error,
+  0,
+  'Fire the guns at thy!',
+);
 
-Yarrr! Splice the mainbrace!
+Arrrr! Yar! Rarr! Splice the mainbrace!
